@@ -10,6 +10,7 @@
 
   Name.delete_all
   User.delete_all
+  Settings.delete_all
 
   @boy 
   File.open("name_files/boy.txt").each_line{ |s|

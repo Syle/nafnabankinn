@@ -1,14 +1,18 @@
 class NamesController < ApplicationController
   
   def index
-   @names = Name.order("name").where(:gender => "male").page(params[:page]).per(10) 
-
-   @size = Name.all 
-   @male_size = Name.order("name").where(:gender => "male").all.size       #TODO Cache this up 
-   @female_size = Name.order("name").where(:gender => "female").all.size   #TODO Cache this up 
-   @middle_size = Name.order("name").where(:category => "middle").all.size #TODO Cache this up 
-   @th_size = Name.order("name").where(:category => "th").all.size         #TODO Cache this up 
-
+    @user = current_user 
+    if @user.nil?
+      @names = Name.order("name").where(:gender => "male").page(params[:page]).per(10)
+    else
+      if @user.settings.nil?
+            @settings = Settings.create(:gender => "male", :category =>"first", :user_id => @user.id)
+            @user.settings = @settings 
+            @names = Name.order("name").where(:gender => @user.settings.gender).page(params[:page]).per(10)
+      else
+        @names = Name.order("name").where(:gender => @user.settings.gender).page(params[:page]).per(10) 
+      end    
+    end
   end
   
 

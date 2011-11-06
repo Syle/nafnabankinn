@@ -1,4 +1,10 @@
 Nafnabankinn::Application.routes.draw do
+  get "settings/new"
+
+  get "settings/save"
+
+  get "settings/update"
+
   resources :names
   root :to => 'names#index'
   match "/users" => "users#index"
