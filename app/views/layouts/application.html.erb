@@ -22,10 +22,9 @@
             <li id="contact"><a href="#contact">Hafa samband</a></li> 
             <li id="profile"><%= link_to "Mín síða" , users_path %> </li> 
           </ul> 
-          <form action="">
-            <input type="text" placeholder="Leita" />
+           <form action="/search/">
+            <input type="text" placeholder="Leita" value="" name="contains"/>
           </form>
-              
         </div> 
       </div> 
     </div> 
@@ -36,7 +35,7 @@
           <!--<h1>Page name <small>Supporting text or tagline</small></h1>--> 
         </div> 
         <div class="row"> 
-          <div class="span10"> 
+          <div class="span11"> 
             <%= yield %>
           </div> 
           <div class="span4"> 

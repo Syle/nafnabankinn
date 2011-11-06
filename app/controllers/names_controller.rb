@@ -52,7 +52,7 @@ class NamesController < ApplicationController
 
   def search
     if(params[:contains]).nil?
-      @names = Name.search('111')
+      @names = Name.search('000')
   else
     @names = Name.search(params[:contains])
   end  
