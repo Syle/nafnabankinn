@@ -1,11 +1,20 @@
-	<header>
-		<h3>Nöfn af handahófi</h3>
-	</header>
-  <ul>
-      <% @random.each do |name| %>
-    <li>
-    <b><%=name.name %> </b>
-      <%= button_to "Like", names_path(:id => name.id), :remote => true %>
-   </li>
-      <% end %>
-  </ul>
+
+
+
+<table class="zebra-striped">
+    <thead>
+        <tr>
+            <th>Nafn</th>
+            <th>Aðgerð</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @random.each do |name| %>
+        <tr>
+            <td><%=name.name %></td>
+            <td><%= button_to "Like", names_path(:id => name.id), :remote => true %></td>
+        </tr>
+    <% end %>
+    </tbody>
+</table>
+

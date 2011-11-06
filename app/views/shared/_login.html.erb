@@ -1,10 +1,11 @@
 <div id="login-menu">  
   <% if current_user %>  
-      Hæ! <%= link_to current_user.name , users_path %>
+      Hæ! <%= link_to current_user.name , users_path %> | 
     
-    <%= link_to "Sign Out", signout_path %>  
+    <%= link_to "Skrá út", signout_path %>  
   <% else %>  
     <%= link_to "Sign in with Twitter", "/auth/twitter" %>  
+    <%= link_to "| Facebook", "/auth/facebook" %>  
   <% end %>  
 </div>
     

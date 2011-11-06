@@ -2,7 +2,13 @@ class NamesController < ApplicationController
   
   def index
    @names = Name.order("name").where(:gender => "male").page(params[:page]).per(10) 
-   @size = Name.all   
+
+   @size = Name.all 
+   @male_size = Name.order("name").where(:gender => "male").all.size       #TODO Cache this up 
+   @female_size = Name.order("name").where(:gender => "female").all.size   #TODO Cache this up 
+   @middle_size = Name.order("name").where(:category => "middle").all.size #TODO Cache this up 
+   @th_size = Name.order("name").where(:category => "th").all.size         #TODO Cache this up 
+
   end
   
 
@@ -38,6 +44,10 @@ class NamesController < ApplicationController
 
   def random
     @random = Name.all.sort_by{rand}[0..6]
+  end
+
+  def name_the_baby
+    @random = Name.all.sort_by{rand}[2..3]  
   end
 
   def search

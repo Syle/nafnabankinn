@@ -5,30 +5,32 @@
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta property="og:title" content="Nafnabankinn" />
+  <meta property="og:description" content="Nafnabankinn er tól sem aðstoðar þig við að finna nafn á barnið þitt" />
+  <meta property="og:image" content="thumbnail_image" />
 </head>
 <body>
 <br>
-
+<br>
     <div class="topbar"> 
       <div class="fill"> 
         <div class="container"> 
-          <a class="brand" href="#">Nafnabankinn</a> 
+        
+          <a class="brand" href="#">Nafnabankinn <span class="label important">alpha</span> </a> 
           <ul class="nav"> 
-            <li class="active"><a href="#">Home</a></li> 
-            <li><a href="#about">About</a></li> 
-            <li><a href="#contact">Contact</a></li> 
+            <li id="about"><a data-controls-modal="modal-from-dom" data-backdrop="true" data-keyboard="true" href="#about">Upplýsingar</a></li> 
+            <li id="contact"><a href="#contact">Hafa samband</a></li> 
+            <li id="profile"><%= link_to "Mín síða" , users_path %> </li> 
           </ul> 
-          <form action="" class="pull-right"> 
-            <input class="input-small" type="text" placeholder="Username"> 
-            <input class="input-small" type="password" placeholder="Password"> 
-            <button class="btn" type="submit">Sign in</button> 
-          </form> 
+          <form action="">
+            <input type="text" placeholder="Leita" />
+          </form>
+              
         </div> 
       </div> 
     </div> 
 
     <div class="container"> 
-
       <div class="content"> 
         <div class="page-header"> 
           <!--<h1>Page name <small>Supporting text or tagline</small></h1>--> 
@@ -38,19 +40,35 @@
             <%= yield %>
           </div> 
           <div class="span4"> 
-            <h3>Temp Login Holder</h3> 
+            <h3>Stillingar</h3>
               <%= render "/shared/login" %>
+              <%= render "/shared/settings" %>
           </div> 
         </div> 
       </div> 
- 
       <footer> 
-        <p>&copy; Company 2011</p> 
-      </footer> 
- 
+        <p>Nafnabankinn v.0.1 | 2011</p> 
+      </footer>
     </div> <!-- /container --> 
-
-
-
 </body>
 </html>
+
+          <!-- Modal About --> 
+          <div id="modal-from-dom" class="modal hide fade"> 
+            <div class="modal-header"> 
+              <a href="#" class="close">alpha</a> 
+              <h3>Nafnabankinn</h3> 
+            </div> 
+            <div class="modal-body"> 
+              <p>Nafnabankinn er fyrir alla, hvort sem þeir eru áhugamenn um nöfn eða eru verðandi foreldrar í leit að nafni fyrir barnið sitt.
+              Nafnabankinn er gæluverkefni sem er í þróun þegar Bjarni hefur tíma :) </p> 
+            </div> 
+            <div class="modal-footer"> 
+              <p>Finnst þér Nafnabankinn sniðugur endilega láta aðra vita</p>
+                <a name="fb_share" type="icon_link" 
+                   share_url="http://www.nafnabankinn.com">Nafnabankinn</a> 
+                <script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" 
+                        type="text/javascript">
+                </script> 
+            </div> 
+          </div> 

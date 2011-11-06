@@ -13,11 +13,20 @@
   </ul>
     <br>
 <div id="back"> 
-  <h4><a href="javascript:history.back();" target="_self">Bakka</a></h4>
+<button id="back" class="btn success"><< Til baka </button>
 </div>
 <br>
+
+<!--
 <script>
   var birth = new Date(); 
   birth = new Date(2012,02,02);
   $('#defaultCountdown').countdown({until: birth}); 
 </script>
+-->
+<script>
+$('#back').click(function() {
+  javascript:history.back();
+});
+</script>
+
