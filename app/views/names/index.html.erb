@@ -1,0 +1,14 @@
+<div>
+  <%= @size.size %>
+</div>
+<table>
+  <tbody id="names">
+    <%= render @names %>
+  <tbody>
+</table>
+<br />
+<div id="paginator">
+  <%= paginate @names, :remote => true %>
+</div>
+
+

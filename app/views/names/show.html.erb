@@ -1,0 +1,18 @@
+<h1>Nöfn</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nöfn</th>
+    </tr>
+  <thead>
+  <tbody id="names">
+    <%= render @names %>
+  <tbody>
+</table>
+<br />
+
+<div id="paginator">
+  <%= paginate @names, :remote => true %>
+</div>
+
+

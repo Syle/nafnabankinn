@@ -1,0 +1,23 @@
+<div id="defaultCountdown"></div>
+<br>
+	<header>
+		<h2>Nöfnin mín</h2>
+	</header>
+  <ul>
+      <% @user.names.each do |name| %>
+    <li>
+    <b><%=name.name %> </b>
+      <%= button_to('Unlike', name, :method => "delete", :remote => true, :disable_with => 'loading...') %>
+   </li>
+      <% end %>
+  </ul>
+    <br>
+<div id="back"> 
+  <h4><a href="javascript:history.back();" target="_self">Bakka</a></h4>
+</div>
+<br>
+<script>
+  var birth = new Date(); 
+  birth = new Date(2012,02,02);
+  $('#defaultCountdown').countdown({until: birth}); 
+</script>

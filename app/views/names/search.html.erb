@@ -1,0 +1,16 @@
+<h3>Leitarniðurstöður</h3>
+  <ul>
+      <% @names.each do |name| %>
+    <li style="display: none">
+    <b><%=name.name %> </b>
+      <%= button_to "Like", names_path(:id => name.id), :remote => true %>
+   </li>
+      <% end %>
+  </ul>
+
+<script>
+
+$(document).ready(function() {
+  $('li').fadeIn('slow');
+});
+</script>
